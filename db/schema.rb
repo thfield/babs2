@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20150722061232) do
     t.decimal  "long"
     t.integer  "dockcount"
     t.string   "landmark"
-    t.date "installation"
+    t.date     "installation"
     t.text     "notes"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 20150722061232) do
     t.integer  "max_gust_speed_mph"
     t.decimal  "precipitation_in"
     t.integer  "cloud_cover"
-    t.string  "events"
+    t.string   "events"
     t.integer  "wind_dir_degrees"
     t.string   "zip_code"
     t.datetime "created_at",                 null: false
