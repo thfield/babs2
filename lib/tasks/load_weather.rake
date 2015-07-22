@@ -5,7 +5,7 @@ namespace :data do
     Dir.chdir(Rails.root + 'lib/assets/data')
     CSV.foreach(args[:filename], :headers => true) do |row|
       Weather.create!({
-        :date => DateTime.strptime(row[0], "%m/%d/%Y").strftime("%Y/%m/%d"),
+        :date                       => DateTime.strptime(row[0], "%m/%d/%Y").strftime("%Y/%m/%d"),
         :max_temperature_f          => row[1],
         :mean_temperature_f         => row[2],
         :min_temperature_f          => row[3],
