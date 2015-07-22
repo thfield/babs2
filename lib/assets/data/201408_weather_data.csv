@@ -1,4 +1,4 @@
-date,max_temperature_f,mean_temperature_f,min_temperature_f,max_dewpoint_f,mean_dewpoint_f,min_dewpoint_f,max_humidity,mean_humidity,min_humidity,max_sea_level_pressure_in,mean_sea_level_pressure_in,min_sea_level_pressure_in,max_visibility_miles,mean_visibility_miles,min_visibility_miles,max_wind_speed_mph,mean_wind_speed_mph,max_gust_speed_mph,precipitation_in,cloud_cover,events,wind_dir_degrees,zip
+date,max_temperature_f,mean_temperature_f,min_temperature_f,max_dewpoint_f,mean_dewpoint_f,min_dewpoint_f,max_humidity,mean_humidity,min_humidity,max_sea_level_pressure_in,mean_sea_level_pressure_in,min_sea_level_pressure_in,max_visibility_miles,mean_visibility_miles,min_visibility_miles,max_wind_speed_mph,mean_wind_speed_mph,max_gust_speed_mph,precipitation_in,cloud_cover,events,wind_dir_degrees,zip_code
 3/1/2014,69,62,54,54,48,44,78,63,48,29.82,29.63,29.47,10,10,10,17,10,25,0.03,7,Rain,108,94107
 3/2/2014,61,57,53,55,51,47,83,75,67,30.17,30.01,29.83,10,9,2,20,9,26,0.02,6,Rain,181,94107
 3/3/2014,61,56,50,52,49,47,89,77,64,30.15,30.11,30.04,10,10,9,18,6,28,0.1,7,Rain,135,94107

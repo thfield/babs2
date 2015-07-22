@@ -4,7 +4,17 @@ namespace :data do
     require 'csv'
     Dir.chdir(Rails.root + 'lib/assets/data')
     CSV.foreach(args[:filename], :headers => true) do |row|
-      Station.create!(row.to_hash)
+      Station.create!({
+        :station_id => row[0],
+        :name => row[1],
+        :lat => row[2],
+        :long => row[3],
+        :dockcount => row[4],
+        :landmark => row[5],
+        :installation => DateTime.strptime(row[6], "%m/%d/%Y").strftime("%Y/%m/%d"),
+        :notes => row[7]
+        })
+      # puts row.to_hash
     end
   end
 end

@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20150722061232) do
     t.decimal  "long"
     t.integer  "dockcount"
     t.string   "landmark"
-    t.datetime "installation"
+    t.date "installation"
     t.text     "notes"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
