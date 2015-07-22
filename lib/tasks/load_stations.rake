@@ -2,7 +2,7 @@ desc "load station csv data into db"
 namespace :data do
   task :load_stations, [:filename] => [:environment] do |t, args|
     require 'csv'
-    Dir.chdir(Rails.root + 'lib/assets/data')
+    Dir.chdir(Rails.root + 'lib/assets/raw_data')
     CSV.foreach(args[:filename], :headers => true) do |row|
       Station.create!({
         :station_id   => row[0],

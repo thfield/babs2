@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Trips</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <% @day_trips.each do |trip| %>
+      <tr>
+        <td>
+          <%= trip[0].strftime("%Y-%m-%d") %>
+        </td>
+        <td>
+          <%= trip[1] %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

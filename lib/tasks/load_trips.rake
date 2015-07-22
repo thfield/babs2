@@ -2,7 +2,7 @@ desc "load trips csv data into db"
 namespace :data do
   task :load_trips, [:filename] => [:environment] do |t, args|
     require 'csv'
-    Dir.chdir(Rails.root + 'lib/assets/data')
+    Dir.chdir(Rails.root + 'lib/assets/raw_data')
     CSV.foreach(args[:filename], :headers => true) do |row|
       Trip.create!({
         :trip_id          => row[0],

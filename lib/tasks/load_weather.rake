@@ -2,7 +2,7 @@ desc "load weather csv data into db"
 namespace :data do
   task :load_weather, [:filename] => [:environment] do |t, args|
     require 'csv'
-    Dir.chdir(Rails.root + 'lib/assets/data')
+    Dir.chdir(Rails.root + 'lib/assets/raw_data')
     CSV.foreach(args[:filename], :headers => true) do |row|
       Weather.create!({
         :date                       => DateTime.strptime(row[0], "%m/%d/%Y").strftime("%Y/%m/%d"),
