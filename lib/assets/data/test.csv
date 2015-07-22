@@ -1,5 +1,30 @@
-date,max_temperature_f,mean_temperature_f,min_temperature_f,max_dewpoint_f,mean_dewpoint_f,min_dewpoint_f,max_humidity,mean_humidity,min_humidity,max_sea_level_pressure_in,mean_sea_level_pressure_in,min_sea_level_pressure_in,max_visibility_miles,mean_visibility_miles,min_visibility_miles,max_wind_speed_mph,mean_wind_speed_mph,max_gust_speed_mph,precipitation_in,cloud_cover,events,wind_dir_degrees,zip_code
-8/29/2013,74,68,61,61,58,56,93,75,57,30.07,30.02,29.97,10,10,10,23,11,28,0,4,,286,94107
-8/30/2013,78,69,60,61,58,56,90,70,50,30.05,30,29.93,10,10,7,29,13,35,0,2,,291,94107
-8/31/2013,71,64,57,57,56,54,93,75,57,30,29.96,29.92,10,10,10,26,15,31,0,4,,284,94107
-9/1/2013,74,66,58,60,56,53,87,68,49,29.96,29.93,29.91,10,10,10,25,13,29,0,4,,284,94107
+trip_id,duration,start_date,start_station,start_terminal,end_date,end_station,end_terminal,bike_id,subscriber_type,zip_code
+432946,406,8/31/2014 22:31,Mountain View Caltrain Station,28,8/31/2014 22:38,Castro Street and El Camino Real,32,17,Subscriber,94040
+432945,468,8/31/2014 22:07,Beale at Market,56,8/31/2014 22:15,Market at 4th,76,509,Customer,11231
+432944,534,8/31/2014 22:06,Beale at Market,56,8/31/2014 22:15,Market at 4th,76,342,Customer,11231
+432942,1041,8/31/2014 21:45,Embarcadero at Sansome,60,8/31/2014 22:02,Steuart at Market,74,603,Customer,94521
+432941,1091,8/31/2014 21:44,Embarcadero at Sansome,60,8/31/2014 22:02,Steuart at Market,74,598,Customer,94521
+432940,1126,8/31/2014 21:44,Embarcadero at Sansome,60,8/31/2014 22:02,Steuart at Market,74,555,Customer,94521
+432939,1135,8/31/2014 21:43,Embarcadero at Sansome,60,8/31/2014 22:02,Steuart at Market,74,425,Customer,94521
+432938,1151,8/31/2014 21:43,Embarcadero at Sansome,60,8/31/2014 22:02,Steuart at Market,74,406,Customer,94521
+432937,614,8/31/2014 21:42,Embarcadero at Sansome,60,8/31/2014 21:52,Harry Bridges Plaza (Ferry Building),50,542,Customer,35242
+432936,617,8/31/2014 21:42,Embarcadero at Sansome,60,8/31/2014 21:52,Harry Bridges Plaza (Ferry Building),50,622,Customer,35242
+432934,977,8/31/2014 21:41,2nd at Townsend,61,8/31/2014 21:57,South Van Ness at Market,66,466,Customer,32
+432931,1035,8/31/2014 21:40,2nd at Townsend,61,8/31/2014 21:57,South Van Ness at Market,66,458,Customer,32
+432930,378,8/31/2014 21:28,Market at Sansome,77,8/31/2014 21:35,Grant Avenue at Columbus Avenue,73,548,Subscriber,94133
+432929,173,8/31/2014 21:14,Howard at 2nd,63,8/31/2014 21:16,Temporary Transbay Terminal (Howard at Beale),55,477,Subscriber,94108
+432928,490,8/31/2014 21:06,Harry Bridges Plaza (Ferry Building),50,8/31/2014 21:14,2nd at Townsend,61,559,Subscriber,94107
+432927,532,8/31/2014 21:06,Harry Bridges Plaza (Ferry Building),50,8/31/2014 21:15,2nd at Townsend,61,458,Customer,94107
+432926,815,8/31/2014 20:47,San Francisco Caltrain (Townsend at 4th),70,8/31/2014 21:01,Embarcadero at Sansome,60,603,Subscriber,94111
+432925,186,8/31/2014 20:37,Temporary Transbay Terminal (Howard at Beale),55,8/31/2014 20:40,Howard at 2nd,63,395,Subscriber,94108
+432924,1007,8/31/2014 20:35,Grant Avenue at Columbus Avenue,73,8/31/2014 20:52,Market at 4th,76,590,Customer,44070
+432923,1020,8/31/2014 20:35,Grant Avenue at Columbus Avenue,73,8/31/2014 20:52,Market at 4th,76,456,Customer,44070
+432917,319,8/31/2014 20:15,Post at Kearny,47,8/31/2014 20:21,Temporary Transbay Terminal (Howard at Beale),55,395,Subscriber,94108
+432916,489,8/31/2014 20:15,5th at Howard,57,8/31/2014 20:23,2nd at Townsend,61,366,Customer,32
+432915,516,8/31/2014 20:14,5th at Howard,57,8/31/2014 20:23,2nd at Townsend,61,349,Customer,32
+432912,398,8/31/2014 20:04,Powell Street BART,39,8/31/2014 20:11,5th at Howard,57,349,Customer,nil
+432911,403,8/31/2014 20:04,Powell Street BART,39,8/31/2014 20:11,5th at Howard,57,466,Customer,nil
+432908,823,8/31/2014 19:59,2nd at Townsend,61,8/31/2014 20:13,Embarcadero at Vallejo,48,521,Customer,94107
+432907,982,8/31/2014 19:57,2nd at Townsend,61,8/31/2014 20:13,Embarcadero at Vallejo,48,402,Subscriber,94107
+432906,10090,8/31/2014 19:47,Powell at Post (Union Square),71,8/31/2014 22:35,Powell at Post (Union Square),71,535,Customer,nil
+432901,394,8/31/2014 19:39,Grant Avenue at Columbus Avenue,73,8/31/2014 19:46,Market at Sansome,77,327,Subscriber,94133

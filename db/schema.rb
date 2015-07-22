@@ -63,9 +63,9 @@ ActiveRecord::Schema.define(version: 20150722061232) do
     t.integer  "max_wind_speed_mph"
     t.integer  "mean_wind_speed_mph"
     t.integer  "max_gust_speed_mph"
-    t.integer  "precipitation_in"
+    t.decimal  "precipitation_in"
     t.integer  "cloud_cover"
-    t.decimal  "events"
+    t.string  "events"
     t.integer  "wind_dir_degrees"
     t.string   "zip_code"
     t.datetime "created_at",                 null: false
