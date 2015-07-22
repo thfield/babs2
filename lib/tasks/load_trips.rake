@@ -1,10 +1,10 @@
-desc "load station csv data into db"
+desc "load trips csv data into db"
 namespace :data do
-  task :load_stations, [:filename] => [:environment] do |t, args|
+  task :load_trips, [:filename] => [:environment] do |t, args|
     require 'csv'
     Dir.chdir(Rails.root + 'lib/assets/data')
     CSV.foreach(args[:filename], :headers => true) do |row|
-      Station.create!(row.to_hash)
+      Trip.create!(row.to_hash)
     end
   end
 end
