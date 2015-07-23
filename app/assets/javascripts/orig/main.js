@@ -302,73 +302,73 @@ $(document).on('click', '#weekendcheck', function () {
 
 function system_users(filePath) {
 
-var width = 320,
-    height = 250,
-    radius = 100;
+  var width = 320,
+      height = 250,
+      radius = 100;
 
-var color = d3.scale.ordinal()
-    .range([colorUsers.subscriber,colorUsers.customer]);
+  var color = d3.scale.ordinal()
+      .range([colorUsers.subscriber,colorUsers.customer]);
 
-var arc = d3.svg.arc()
-    .outerRadius(radius - 10)
-    .innerRadius(0);
+  var arc = d3.svg.arc()
+      .outerRadius(radius - 10)
+      .innerRadius(0);
 
-var pie = d3.layout.pie()
-    .sort(null)
-    .value(function(d) { return d.rides; });
+  var pie = d3.layout.pie()
+      .sort(null)
+      .value(function(d) { return d.rides; });
 
-var svg = d3.select("#row3").append("svg")
-    .attr("width", width)
-    .attr("height", height)
-  .append("g")
-    .attr("transform", "translate(" + 100 + "," + 100 + ")");
+  var svg = d3.select("#row3").append("svg")
+      .attr("width", width)
+      .attr("height", height)
+    .append("g")
+      .attr("transform", "translate(" + 100 + "," + 100 + ")");
 
-var title = svg.append("text")
-      .text("Riders by membership")
-      .attr("class", "title")
-      .style("text-anchor", "middle")
-      .attr("x", 0)
-      .attr("y", 120);
+  var title = svg.append("text")
+        .text("Riders by membership")
+        .attr("class", "title")
+        .style("text-anchor", "middle")
+        .attr("x", 0)
+        .attr("y", 120);
 
-d3.csv(filePath, function(error, data) {
+  d3.csv(filePath, function(error, data) {
 
-  data.forEach(function(d) {
-    d.rides = +d.rides;
-  });
+    data.forEach(function(d) {
+      d.rides = +d.rides;
+    });
 
-  var g = svg.selectAll(".slice")
-      .data(pie(data))
-    .enter().append("g")
-      .attr("class", "slice");
+    var g = svg.selectAll(".slice")
+        .data(pie(data))
+      .enter().append("g")
+        .attr("class", "slice");
 
-  g.append("path")
-      .attr("d", arc)
-      .style("fill", function(d) { return color(d.data.user); });
+    g.append("path")
+        .attr("d", arc)
+        .style("fill", function(d) { return color(d.data.user); });
 
-    g.append("title")
-     // .text(function(d) { return d.data.percent + "%"; });
-      .text(function(d) { return d.data.rides + " riders"; });
+      g.append("title")
+       // .text(function(d) { return d.data.percent + "%"; });
+        .text(function(d) { return d.data.rides + " riders"; });
 
-  var legend = svg.selectAll(".legend")
-          .data(pie(data))
-        .enter().append("g")
-          .attr("class", "legend")
-          .attr("transform", "translate(50,-50)");
+    var legend = svg.selectAll(".legend")
+            .data(pie(data))
+          .enter().append("g")
+            .attr("class", "legend")
+            .attr("transform", "translate(50,-50)");
 
-      legend.append("rect")
-          .attr("x",150)
-          .attr("y", function(d, i) { return 20 * i +20; })
-          .attr("width", 18)
-          .attr("height", 18)
-          .style("fill", function(d) { return color(d.data.user);  });
-      legend.append("text")
-          //.attr("class", "mono")
-          .style("text-anchor", "end")
-          .text(function(d) { return d.data.user; })
-          .attr("x", 140)
-          .attr("y", function(d, i) { return 20 * i+32; })
+        legend.append("rect")
+            .attr("x",150)
+            .attr("y", function(d, i) { return 20 * i +20; })
+            .attr("width", 18)
+            .attr("height", 18)
+            .style("fill", function(d) { return color(d.data.user);  });
+        legend.append("text")
+            //.attr("class", "mono")
+            .style("text-anchor", "end")
+            .text(function(d) { return d.data.user; })
+            .attr("x", 140)
+            .attr("y", function(d, i) { return 20 * i+32; })
 
-  });
+    });
 } // end system_users()
 
 
@@ -934,7 +934,7 @@ function durationsH(filePath) {
     var extraLegend = rides.append("g")
         .attr("class", "legend")
         .attr("transform", function() { return "translate(0," + 2 * 20 + ")"; });
-        
+
     extraLegend.append("rect")
         .attr("x", width - 18)
         .attr("width", 18)

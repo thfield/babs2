@@ -12,33 +12,7 @@ class TripsController < ApplicationController
     @day_trips = @trips.group_by_day(:start_date).count
   end
 
-  # GET /trips/1
-  # GET /trips/1.json
   def show
-  end
-
-  # GET /trips/new
-  def new
-
-  end
-
-  # GET /trips/1/edit
-  def edit
-  end
-
-  # POST /trips
-  # POST /trips.json
-  def create
-  end
-
-  # PATCH/PUT /trips/1
-  # PATCH/PUT /trips/1.json
-  def update
-  end
-
-  # DELETE /trips/1
-  # DELETE /trips/1.json
-  def destroy
   end
 
   private
