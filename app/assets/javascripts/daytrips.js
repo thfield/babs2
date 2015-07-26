@@ -27,7 +27,7 @@ function system_rides(filePath) {
       .y0(height)
       .y1(function(d) { return ybar(d.bool); });
 
-  var svg = d3.select("#row2").append("svg")
+  var svg = d3.select("#chart").append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom);
 

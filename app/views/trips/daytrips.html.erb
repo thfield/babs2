@@ -7,6 +7,8 @@
 <h1>Trips by Day</h1>
 
 <input type="checkbox" id="weekendcheck">Highlight Weekends</input>
-<div id="row2" class="chart"></div>
+<div id="chart" class="chart">
+  <svg></svg>
+</div>
 
-<%= javascript_include_tag "daytrips", "data-turbolinks-track" => true %>
+<%= javascript_include_tag params[:controller], "data-turbolinks-track" => true %>

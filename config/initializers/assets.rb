@@ -11,3 +11,6 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 
 Rails.application.config.assets.precompile += %w( daytrips.js )
+Rails.application.config.assets.precompile += %w( trips.js )
+Rails.application.config.assets.precompile += %w( daytrips_nvd3.js )
+Rails.application.config.assets.precompile += %w( nv.d3.css )
