@@ -10,6 +10,7 @@ class TripsController < ApplicationController
   def daytrips
     @trips = Trip.all
     @day_trips = @trips.group_by_day(:start_date).count
+    #@sf_trips = @trips.group_by().count
   end
 
   def show
