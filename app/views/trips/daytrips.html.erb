@@ -1,4 +1,8 @@
 <p id="notice"><%= notice %></p>
+<div id="controls">
+  Start Date: <input type="date" name="startDate" value="<%= @day_trips.keys.first.strftime("%Y-%m-%d") %>"> |
+  End Date:  <input type="date" name="endDate" value="<%= @day_trips.keys.last.strftime("%Y-%m-%d") %>">
+</div>
 
 <h1>Trips by Day</h1>
 

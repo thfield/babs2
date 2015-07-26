@@ -50,7 +50,7 @@ function system_rides(filePath) {
       d.date = parseDate(d.date);
       d.rides = +d.rides;
     });
-    
+
     var userType = color.domain().map(function(name) {
       return {
         name: name,
