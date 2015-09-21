@@ -12,21 +12,20 @@ babs.util.chooseCity = function(event){
   $( "#control-city div button" ).removeClass( "active");
   $(this).addClass("active");
 
-  if( page == "trips"){
+  if( page === "trips"){
     $('#chart').empty();
     babs.chart.line_series_zoom({
       city: city,
-      filePath: "daytrip_"+ city +".csv"
+      filePath: "data/daytrip_"+ city +".csv"
     });
   };
-  // console.log(city);
-  // console.log(page);
+
 };
 
 babs.util.expandCity = function(abbrev){
   switch(abbrev){
     case "all":
-        return "System-wide";
+        return "System-Wide";
         break;
     case "sj":
         return "San Jose";
@@ -139,7 +138,6 @@ babs.chart.line_series = function(opt){
         .text(opt.yAxisTitle);
   });
 };
-
 
 babs.chart.line_series_zoom = function(opt){
   opt.pageTarget = opt.pageTarget || '#chart';
