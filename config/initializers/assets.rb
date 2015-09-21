@@ -10,7 +10,10 @@ Rails.application.config.assets.version = '1.0'
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
 
-Rails.application.config.assets.precompile += %w( daytrips.js )
 Rails.application.config.assets.precompile += %w( trips.js )
+Rails.application.config.assets.precompile += %w( system.js )
+Rails.application.config.assets.precompile += %w( stations.js )
+Rails.application.config.assets.precompile += %w( time.js )
+Rails.application.config.assets.precompile += %w( daytrips.js )
 Rails.application.config.assets.precompile += %w( daytrips_nvd3.js )
 Rails.application.config.assets.precompile += %w( nv.d3.css )

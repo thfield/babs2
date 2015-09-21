@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   resources :trips
+  resources :stations
+
+  get 'system' => 'system#index'
+  get 'time' => 'time#index'
 
   get 'daytrips' => 'trips#daytrips'
   get 'test' => 'trips#test'

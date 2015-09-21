@@ -1,0 +1,6 @@
+<ul class="nav nav-tabs">
+  <li class="<%= 'active' if current_page?(trips_path) %>"><%= link_to "Trips", trips_path %></li>
+  <li class="<%= 'active' if current_page?(system_path) %>"><%= link_to "System", system_path %></li>
+  <li class="<%= 'active' if current_page?(stations_path) %>"><%= link_to "Stations", stations_path %></li>
+  <li class="<%= 'active' if current_page?(time_path) %>"><%= link_to "Time", time_path %></li>
+</ul>
