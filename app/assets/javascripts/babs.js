@@ -1,9 +1,52 @@
 var babs = babs || {};
 babs.chart = {};
 babs.defaults = {};
+babs.util = {};
 
 babs.defaults.colorSwatches = [ "#7bccc4", "#0070cd", "#bae4bc" ];
 
+babs.util.chooseCity = function(event){
+  // var city = /city\-(\w{2,3})/.exec(this.id)[1];
+  var city = this.dataset.city
+  var page = event.data.page;
+  $( "#control-city div button" ).removeClass( "active");
+  $(this).addClass("active");
+
+  if( page == "trips"){
+    $('#chart').empty();
+    babs.chart.line_series_zoom({
+      city: city,
+      filePath: "daytrip_"+ city +".csv"
+    });
+  };
+  // console.log(city);
+  // console.log(page);
+};
+
+babs.util.expandCity = function(abbrev){
+  switch(abbrev){
+    case "all":
+        return "System-wide";
+        break;
+    case "sj":
+        return "San Jose";
+        break;
+    case "rc":
+        return "Redwood City";
+        break;
+    case "mv":
+        return "Mountain View";
+        break;
+    case "pa":
+        return "Palo Alto"
+        break;
+    case "sf":
+        return "San Francisco"
+        break;
+    default:
+        break;
+  }
+}
 
 babs.chart.line_series = function(opt){
   // var margin = (opt.margin || babs.defaults.margin),
@@ -97,7 +140,13 @@ babs.chart.line_series = function(opt){
   });
 };
 
+
 babs.chart.line_series_zoom = function(opt){
+  opt.pageTarget = opt.pageTarget || '#chart';
+  opt.indVar = opt.indVar || 'date';
+  opt.dateParse = opt.dateParse || '%Y-%m-%d';
+  opt.yAxisTitle = opt.yAxisTitle || 'rides';
+
   var margin = {top: 10, right: 40, bottom: 100, left: 40},
       margin2 = {top: 430, right: 40, bottom: 20, left: 40},
       width = 800 - margin.left - margin.right,
@@ -150,8 +199,9 @@ babs.chart.line_series_zoom = function(opt){
       .attr("class", "context")
       .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");
 
-  d3.json(opt.filePath, function(error, data) {
+  d3.csv(opt.filePath, function(error, data) {
 
+    // series.domain(d3.keys(data[0]).filter(function(key) { return (key !== opt.indVar ); }));
     series.domain(d3.keys(data[0]).filter(function(key) { return (key !== opt.indVar ); }));
 
     if (opt.dateParse) {
@@ -168,6 +218,7 @@ babs.chart.line_series_zoom = function(opt){
         })
       };
     });
+
 
     x.domain(d3.extent(data, function(d) { return d[opt.indVar]; }));
     y.domain([
@@ -239,6 +290,12 @@ babs.chart.line_series_zoom = function(opt){
       .selectAll("rect")
         .attr("y", -6)
         .attr("height", height2 + 7);
+
+
+    var chartTitle = (d3.select('#chart-title') || d3.select(opt.pageTarget).insert("h1", ":first-child").attr('id', 'chart-title'));
+
+    chartTitle.text( babs.util.expandCity(opt.city) + ' Trips per Day' );
+
     });
 
   function brushed() {

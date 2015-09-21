@@ -4,14 +4,33 @@ class TripsController < ApplicationController
   # GET /trips
   # GET /trips.json
   def index
-    @trips = Trip.first(100)
+    @first_trip = Trip.first()
+    @last_trip = Trip.last()
+    # @trips = Trip.includes(:departing_station).first(10)
+    # @sf = @trips.select{|trip| trip.departing_station.landmark ==  "San Francisco"}
+  end
+
+  def test
+    @trips = Trip.includes(:departing_station).limit(20)
+    # @sf = Trip.joins('INNER JOIN stations ON trips.departing_station_id = stations.id').limit(40)
+    @sf = @trips.select{|trip| trip.departing_station.landmark ==  "San Francisco"}
+    # @total = @sf.group_by_day(:departing_date).count
+    # @sf = Trip.joins('INNER JOIN stations ON trips.departing_station_id = stations.id').where('landmark' = "San Francisco").limit(10)
+    # @sf = Trip.joins(:departing_station).where( departing_station: { landmark: "San Francisco" } ).limit(10)
+    # @sf = Trip.includes(:departing_station).select{|trip| trip.departing_station.landmark ==  "San Francisco"}.limit(40)
+    # @total_trips = @trips.group_by_day(:departing_date).count
+    # @sf_trips = @sf.group_by_day(:departing_date).count
+    # @total_trips = @trips.where('departing_station.landmark = "San Francisco"').group_by_day(:departing_date).count
   end
 
   def daytrips
-    @trips = Trip.all
-    @day_trips = @trips.group_by_day(:start_date).count
-    @customer_trips = @trips.group_by_day(:start_date).where(subscriber_type: "Customer").count
-    @subscriber_trips = @trips.group_by_day(:start_date).where(subscriber_type: "Subscriber").count
+    # @trips = Trip.includes(:departing_station, :departing_date).all
+    @trips = Trip.includes(:departing_station).all
+    @sf = @trips.select{|trip| trip.departing_station.landmark ==  "San Francisco"}
+    @total_trips = @trips.group_by_day(:departing_date).count
+    @sf_trips = @sf.count
+    # @customer_trips = @trips.group_by_day(:departing_date).where(subscriber_type: "Customer").count
+    # @subscriber_trips = @trips.group_by_day(:departing_date).where(subscriber_type: "Subscriber").count
   end
 
   def show

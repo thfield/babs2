@@ -1,14 +1,13 @@
 class CreateTrips < ActiveRecord::Migration
   def change
     create_table :trips do |t|
-      t.integer   :trip_id
       t.integer   :duration
-      t.datetime  :start_date
-      t.string    :start_station
-      t.integer   :start_terminal
-      t.datetime  :end_date
-      t.string    :end_station
-      t.integer   :end_terminal
+      t.datetime  :departing_date
+      t.string    :departing_station_name
+      t.integer   :departing_station_id
+      t.datetime  :arriving_date
+      t.string    :arriving_station_name
+      t.integer   :arriving_station_id
       t.integer   :bike_id
       t.string    :subscriber_type
       t.string    :zip_code

@@ -1,0 +1,13 @@
+<div id="control-city">
+  <div class="btn-group">
+    <button type="button" class="btn btn-default active" data-city="all">System Wide</button>
+    <button type="button" class="btn btn-default" data-city="sj">San Jose</button>
+    <button type="button" class="btn btn-default" data-city="rc">Redwood City</button>
+    <button type="button" class="btn btn-default" data-city="mv">Mountain View</button>
+    <button type="button" class="btn btn-default" data-city="pa">Palo Alto</button>
+    <button type="button" class="btn btn-default" data-city="sf">San Francisco</button>
+  </div>
+</div>
+<script>
+  $( "#control-city div button" ).on( "click", {page:"<%= controller_name %>"}, babs.util.chooseCity);
+</script>

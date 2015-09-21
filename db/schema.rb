@@ -17,8 +17,6 @@ ActiveRecord::Schema.define(version: 20150722204549) do
   enable_extension "plpgsql"
 
   create_table "stations", force: :cascade do |t|
-    t.text     "data_dump"
-    t.integer  "station_id"
     t.string   "name"
     t.decimal  "lat"
     t.decimal  "long"
@@ -31,14 +29,13 @@ ActiveRecord::Schema.define(version: 20150722204549) do
   end
 
   create_table "trips", force: :cascade do |t|
-    t.integer  "trip_id"
     t.integer  "duration"
-    t.datetime "start_date"
-    t.string   "start_station"
-    t.integer  "start_terminal"
-    t.datetime "end_date"
-    t.string   "end_station"
-    t.integer  "end_terminal"
+    t.datetime "departing_date"
+    t.string   "departing_station_name"
+    t.integer  "departing_station_id"
+    t.datetime "arriving_date"
+    t.string   "arriving_station_name"
+    t.integer  "arriving_station_id"
     t.integer  "bike_id"
     t.string   "subscriber_type"
     t.string   "zip_code"

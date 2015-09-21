@@ -5,7 +5,7 @@ namespace :data do
     Dir.chdir(Rails.root + 'lib/assets/raw_data')
     CSV.foreach(args[:filename], :headers => true) do |row|
       Station.create!({
-        :station_id   => row[0],
+        :id           => row[0],
         :name         => row[1],
         :lat          => row[2],
         :long         => row[3],
@@ -19,3 +19,4 @@ namespace :data do
   end
 end
 #http://stackoverflow.com/questions/4410794/ruby-on-rails-import-data-from-a-csv-file
+#command: rake data:load_stations[201402_station_data.csv]

@@ -5,14 +5,14 @@ namespace :data do
     Dir.chdir(Rails.root + 'lib/assets/raw_data')
     CSV.foreach(args[:filename], :headers => true) do |row|
       Trip.create!({
-        :trip_id          => row[0],
+        :id               => row[0],
         :duration         => row[1],
-        :start_date       => DateTime.strptime(row[2], "%m/%d/%Y %H:%M").strftime("%Y/%m/%d %H:%M"),
-        :start_station    => row[3],
-        :start_terminal   => row[4],
-        :end_date         => DateTime.strptime(row[5], "%m/%d/%Y %H:%M").strftime("%Y/%m/%d %H:%M"),
-        :end_station      => row[6],
-        :end_terminal     => row[7],
+        :departing_date       => DateTime.strptime(row[2], "%m/%d/%Y %H:%M").strftime("%Y/%m/%d %H:%M"),
+        :departing_station_name    => row[3],
+        :departing_station_id   => row[4],
+        :arriving_date         => DateTime.strptime(row[5], "%m/%d/%Y %H:%M").strftime("%Y/%m/%d %H:%M"),
+        :arriving_station_name      => row[6],
+        :arriving_station_id     => row[7],
         :bike_id          => row[8],
         :subscriber_type  => row[9],
         :zip_code         => row[10]
@@ -21,3 +21,4 @@ namespace :data do
   end
 end
 #http://stackoverflow.com/questions/4410794/ruby-on-rails-import-data-from-a-csv-file
+#command: rake data:load_trips[some_trips.csv]

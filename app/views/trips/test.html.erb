@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Trips</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+
+
+    <tr>
+      <td>
+        ...
+      </td>
+    </tr>
+
+    <% @sf.each do |trip| %>
+      <tr>
+        <td>
+          <%= trip.id %>
+        </td>
+        <td>
+          <%= trip.departing_date %>
+        </td>
+        <td>
+          <%= trip.departing_station.name %>
+        </td>
+        <td>
+          <%= trip.departing_station.landmark %>
+        </td>
+        <td>
+          <%= trip.departing_station_id %> |
+          <%= trip.arriving_station_id %>
+        </td>
+      </tr>
+    <% end %>
+
+
+  </tbody>
+</table>
+
+<br>
+<%= @sf.class %>
