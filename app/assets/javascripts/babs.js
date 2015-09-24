@@ -4,6 +4,7 @@ babs.defaults = {};
 babs.util = {};
 
 babs.defaults.colorSwatches = [ "#7bccc4", "#0070cd", "#bae4bc" ];
+babs.defaults.colorCities = ["#f0f9e8","#bae4bc","#7bccc4","#43a2ca","#0070cd"];
 
 babs.util.chooseCity = function(event){
   // var city = /city\-(\w{2,3})/.exec(this.id)[1];
@@ -217,7 +218,6 @@ babs.chart.line_series_zoom = function(opt){
       };
     });
 
-
     x.domain(d3.extent(data, function(d) { return d[opt.indVar]; }));
     y.domain([
       d3.min(seriesNum, function(c) { return d3.min(c.values, function(v) { return v.yVar; }); }),
@@ -289,11 +289,8 @@ babs.chart.line_series_zoom = function(opt){
         .attr("y", -6)
         .attr("height", height2 + 7);
 
-
     var chartTitle = (d3.select('#chart-title') || d3.select(opt.pageTarget).insert("h1", ":first-child").attr('id', 'chart-title'));
-
     chartTitle.text( babs.util.expandCity(opt.city) + ' Trips per Day' );
-
     });
 
   function brushed() {
@@ -301,4 +298,83 @@ babs.chart.line_series_zoom = function(opt){
     focus.selectAll(".line").attr("d", function(d) { return line(d.values); });
     focus.select(".x.axis").call(xAxis);
   }
+}
+
+
+babs.chart.pie = function(filePath) {
+  var radius = 74,
+      padding = 10;
+
+  var series = d3.scale.ordinal()
+      .range(babs.defaults.colorCities);
+
+  var arc = d3.svg.arc()
+      .outerRadius(radius)
+      .innerRadius(radius - 30);
+
+  var pie = d3.layout.pie()
+      .sort(null)
+      .value(function(d) { return d.count; });
+
+  d3.csv(filePath, function(error, data) {
+    if (error) throw error;
+
+    var tData =[],
+        categories = d3.keys(data[0]).filter(function(key){return key !== 'city'});
+
+    categories.forEach(function(val,i){
+      tData[i]={},
+      tData[i]["title"] = val;
+      tData[i]["values"] = [];
+      data.forEach(function(d,di){
+       tData[i]["values"][di]={},
+       tData[i]["values"][di]["series"] = d.city;
+       tData[i]["values"][di]["count"] = +d[val];
+      });
+    });
+
+    series.domain(data.map(function(series){ return series.city }));
+
+    var legend = d3.select("body").append("svg")
+        .attr("class", "legend")
+        .attr("width", radius * 2)
+        .attr("height", radius * 2)
+      .selectAll("g")
+        .data(series.domain().slice().reverse())
+      .enter().append("g")
+        .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+    legend.append("rect")
+        .attr("width", 18)
+        .attr("height", 18)
+        .style("fill", series);
+
+    legend.append("text")
+        .attr("x", 24)
+        .attr("y", 9)
+        .attr("dy", ".35em")
+        .text(function(d) { return d; });
+
+    var svg = d3.select("body").selectAll(".pie")
+        .data(tData)
+      .enter().append("svg")
+        .attr("class", "pie")
+        .attr("width", radius * 2)
+        .attr("height", radius * 2)
+      .append("g")
+        .attr("transform", "translate(" + radius + "," + radius + ")");
+
+    svg.selectAll(".arc")
+        .data(function(d) { return pie(d.values); })
+      .enter().append("path")
+        .attr("class", "arc")
+        .attr("d", arc)
+        .style("fill", function(d) { return series(d.data.series); });
+
+    svg.append("text")
+        .attr("dy", ".35em")
+        .style("text-anchor", "middle")
+        .text(function(d) { return d.title; });
+
+  });
 }

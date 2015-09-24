@@ -128,9 +128,6 @@ td, th {
   stroke: #ff9c27;
 }
 /* -- i know using ids in css is bad form, but i need to align things quickly -- */
-#pies {
-  margin-left: 110px;
-}
 #weekendcheck {
   margin-left: 500px;
 }
