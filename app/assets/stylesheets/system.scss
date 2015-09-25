@@ -1,3 +1,12 @@
 // Place all the styles related to the system controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.pie {
+  margin: 0 5px;
+}
+
+.sf-arc:hover{
+    stroke: #ff9c27 ;
+    stroke-width: 2px;
+}

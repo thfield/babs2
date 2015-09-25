@@ -3,4 +3,6 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 
-babs.chart.pie("data/piedata.csv");
+babs.chart.pie({
+  filePath: "data/piedata.csv"
+  });

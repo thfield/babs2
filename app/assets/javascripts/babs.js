@@ -301,9 +301,10 @@ babs.chart.line_series_zoom = function(opt){
 }
 
 
-babs.chart.pie = function(filePath) {
-  var radius = 74,
-      padding = 10;
+babs.chart.pie = function(opt) {
+  opt.pageTarget = opt.pageTarget || '#pies';
+
+  var radius = 74;
 
   var series = d3.scale.ordinal()
       .range(babs.defaults.colorCities);
@@ -316,7 +317,7 @@ babs.chart.pie = function(filePath) {
       .sort(null)
       .value(function(d) { return d.count; });
 
-  d3.csv(filePath, function(error, data) {
+  d3.csv(opt.filePath, function(error, data) {
     if (error) throw error;
 
     var tData =[],
@@ -335,7 +336,7 @@ babs.chart.pie = function(filePath) {
 
     series.domain(data.map(function(series){ return series.city }));
 
-    var legend = d3.select("body").append("svg")
+    var legend = d3.select(opt.pageTarget).append("svg")
         .attr("class", "legend")
         .attr("width", radius * 2)
         .attr("height", radius * 2)
@@ -353,9 +354,9 @@ babs.chart.pie = function(filePath) {
         .attr("x", 24)
         .attr("y", 9)
         .attr("dy", ".35em")
-        .text(function(d) { return d; });
+        .text(function(d) { return babs.util.expandCity(d); });
 
-    var svg = d3.select("body").selectAll(".pie")
+    var svg = d3.select(opt.pageTarget).selectAll(".pie")
         .data(tData)
       .enter().append("svg")
         .attr("class", "pie")
@@ -367,9 +368,11 @@ babs.chart.pie = function(filePath) {
     svg.selectAll(".arc")
         .data(function(d) { return pie(d.values); })
       .enter().append("path")
-        .attr("class", "arc")
+        .attr("class", function(d) { return "arc "+ d.data.series + "-arc"; })
         .attr("d", arc)
-        .style("fill", function(d) { return series(d.data.series); });
+        .style("fill", function(d) { return series(d.data.series); })
+        .append("title")
+            .text(function(d) { return d.data.count; });
 
     svg.append("text")
         .attr("dy", ".35em")
