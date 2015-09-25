@@ -6,7 +6,7 @@ class CreateStations < ActiveRecord::Migration
       t.decimal   :long
       t.integer   :dockcount
       t.string    :landmark
-      t.datet     :installation
+      t.date      :installation
       t.text      :notes
 
       t.timestamps null: false
