@@ -272,7 +272,7 @@ text.mono {
 }
 rect.highlight {
   stroke: #ff9c27;
-  stroke-width 1px;
+  stroke-width: 0.5px;
 }
 text.text-hover {
   fill: #ff9c27;
