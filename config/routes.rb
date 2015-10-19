@@ -7,6 +7,10 @@ Rails.application.routes.draw do
 
   get 'daytrips' => 'trips#daytrips'
   get 'test' => 'trips#test'
+
+  get 'welcome/index'
+  root 'welcome#index'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
