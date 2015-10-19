@@ -58,7 +58,7 @@ babs.chart.line_series = function(opt){
 
   var x = d3.time.scale().range([0, width]),
       y = d3.scale.linear().range([height, 0]),
-      ybar = d3.scale.linear().range([height, 0]).domain([0,1]);``
+      ybar = d3.scale.linear().range([height, 0]).domain([0,1]);
 
   var xAxis = d3.svg.axis().scale(x).orient("bottom"),
       yAxis = d3.svg.axis().scale(y).orient("left");
